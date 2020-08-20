@@ -21,6 +21,10 @@ var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELI
 
 var cors_proxy = require('./lib/cors-anywhere');
 cors_proxy.createServer({
+  setHeaders : {
+    ":authority" : 'https://r1---sn-p5qlsndd.googlevideo.com',
+    "origin": 'https://youtube.googleapis.com'
+  },
   originBlacklist: originBlacklist,
   originWhitelist: originWhitelist,
   requireHeader: ['origin', 'x-requested-with'],
